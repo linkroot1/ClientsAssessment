@@ -1,14 +1,7 @@
 # Инструкция по сборке и настройке
 
 ### Настройки:
-- spring.datasource.url - url для базы данных с таблицей результатов оценки
-- spring.datasource.username - логин для базы данных с таблицей результатов оценки
-- spring.datasource.password - пароль для базы данных с таблицей результатов оценки
-- spring.datasource.driver - драйвер для базы данных с таблицей результатов оценки
-- spring.datasource.driver - драйвер для базы данных с таблицей результатов оценки
-- spring.datasource.hikari.maximum-pool-size - максимальное количество соединений, которые могут быть одновременно открыты в пуле для базы данных с таблицей результатов оценки
-- spring.jpa.hibernate.ddl-auto - настройка которая определяет, как Hibernate будет управлять схемой базы данных при запуске приложения для базы данных с таблицей результатов оценки
-- hibernate.dialect - диалект для базы данных с таблицей результатов оценки
+- spring.elasticsearch.uris - хост и порт для базы данных с таблицей результатов оценки в elasticsearch
 - camunda.bpm.db.schema-name - url для базы данных camunda
 - camunda.bpm.db.username - логин для базы данных camunda
 - camunda.bpm.db.password - пароль для базы данных camunda

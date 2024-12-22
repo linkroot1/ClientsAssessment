@@ -1,20 +1,26 @@
 package ru.pavlenko.clientsassessment.model;
 
-import javax.persistence.Entity;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+
+@Document(indexName = "clientassessment")
 public class ClientAssessment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Field
     private boolean success;
 
+    @Field
     private String details;
 
+    @Field
     private String inn;
 
     public ClientAssessment(boolean success, String details, String inn) {

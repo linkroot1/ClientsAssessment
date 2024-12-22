@@ -1,7 +1,7 @@
 package ru.pavlenko.clientsassessment.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import ru.pavlenko.clientsassessment.model.ClientAssessment;
 
-public interface ClientAssessmentRepository extends JpaRepository<ClientAssessment, Long> {
+public interface ClientAssessmentRepository extends ElasticsearchRepository<ClientAssessment, Long> {
 }
