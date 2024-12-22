@@ -1,4 +1,3 @@
-README_BUILD_AND_SETTINGS.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
