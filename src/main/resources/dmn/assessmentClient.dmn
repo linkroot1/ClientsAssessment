@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_15f9h0m" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="assessmentClient" name="Оценка клиента">
+    <decisionTable id="DecisionTable_1m0m5wt" hitPolicy="COLLECT">
+      <input id="Input_1" label="ИНН" camunda:inputVariable="inn">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text>inn</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1coqfnm" label="Капитал" camunda:inputVariable="capital">
+        <inputExpression id="LiteralExpression_02hy32n" typeRef="double">
+          <text>capital</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kpx6np" label="Регион" camunda:inputVariable="region">
+        <inputExpression id="LiteralExpression_1azqlbk" typeRef="string">
+          <text>region</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Результат" name="isSuccess" typeRef="boolean" biodi:width="192" />
+      <output id="OutputClause_1fljxex" label="Детализация" name="details" typeRef="string" />
+      <rule id="DecisionRule_1d6cuy0">
+        <inputEntry id="UnaryTests_0sf5nie">
+          <text>string length(inn) = 12</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gv5kuw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12r0mqo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16d1o95">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15nqhpk">
+          <text>"Компания является ИП" </text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01fh740">
+        <inputEntry id="UnaryTests_13hcs6u">
+          <text>matches(inn, "^9909.*")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b69nh4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wgvp3z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_048qb3m">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1h146jt">
+          <text>"Компания не является резидентом РФ"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nyvdmj">
+        <inputEntry id="UnaryTests_117cjse">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07b4lim">
+          <text>&lt; 5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ads35p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0r58g6o">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1921pmd">
+          <text>"Капитал компании меньше 5000000"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_112zh3e">
+        <inputEntry id="UnaryTests_0sf69nr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0508i2r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b3wq0f">
+          <text>"24"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fclmoq">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rqf90x">
+          <text>"Компания находится в запрещенном регионе (Красноярский край)"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_018dqjy">
+        <inputEntry id="UnaryTests_0jpl0bd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fpox6k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16f0qma">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11gpj7y">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_012o3e2">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="assessmentClient">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
